@@ -38,7 +38,10 @@ class UserInfo(models.Model):
 class Post(models.Model):
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='post',
     )
     title = models.CharField(max_length=50)
     content = models.TextField()
@@ -59,7 +62,9 @@ class Comment(models.Model):
 
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
     )
 
     content = models.TextField(max_length=200)
