@@ -7,6 +7,12 @@ class User(models.Model):
         'self',
     )
 
+    def show_friends(self):
+        print(self.name,' 의 친구 목록')
+        show = self.friends.all()
+        for i in show:
+            print('-',i)
+
     def __str__(self):
         return self.name
 
